@@ -6,7 +6,7 @@
   <property name="description"
     i18n:translate="">Contained by a signup sheet, and contains timeslot objects</property>
   <property name="content_meta_type">TimeSlot</property>
-  <property name="content_icon">folder_icon.gif</property>
+  <property name="content_icon">folder_icon.png</property>
   <property name="product">uwosh.timeslot</property>
   <property name="factory">addTimeSlot</property>
   <property name="immediate_view">atct_edit</property>

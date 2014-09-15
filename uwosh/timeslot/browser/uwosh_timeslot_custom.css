@@ -26,12 +26,12 @@ li.collapsibleListHeader:hover
 
 li.collapsibleListHeader.collapsed
 {
-    list-style: url(treeCollapsed.gif);
+    list-style: url(treeCollapsed.png);
 }
 
 li.collapsibleListHeader.expanded
 {
-    list-style: url(treeExpanded.gif);
+    list-style: url(treeExpanded.png);
 }
 
 /*
