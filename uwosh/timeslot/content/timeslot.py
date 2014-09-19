@@ -87,7 +87,7 @@ class TimeSlot(folder.ATFolder):
     name = atapi.ATFieldProperty('name')
 
     def Title(self):
-        if self.name != '':
+        if self.getName() != '':
             return '%s: %s' % (self.name, self.getTimeRange())
         elif self.getTimeRange() != '':
             return self.getTimeRange()
@@ -95,11 +95,11 @@ class TimeSlot(folder.ATFolder):
             return self.id
 
     def getTimeRange(self):
-        if self.startTime is None or self.endTime is None:
+        if self.getStartTime() is None or self.getEndTime() is None:
             return ''
         else:
-            return '%s - %s' % (self.startTime.strftime('%I:%M %p'),
-                                self.endTime.strftime('%I:%M %p'))
+            return '%s - %s' % (self.getStartTime().strftime('%I:%M %p'),
+                                self.getEndTime().strftime('%I:%M %p'))
 
     def getLabel(self):
         parentDay = self.aq_parent
@@ -112,7 +112,7 @@ class TimeSlot(folder.ATFolder):
             path=self.getPath(),
         )
         numberOfPeopleSignedUp = len(brains)
-        return max(0, self.maxCapacity - numberOfPeopleSignedUp)
+        return max(0, self.getMaxCapacity() - numberOfPeopleSignedUp)
 
     def isCurrentUserSignedUpForThisSlot(self):
         member = self.portal_membership.getAuthenticatedMember()
@@ -129,7 +129,7 @@ class TimeSlot(folder.ATFolder):
 
     def isFull(self):
         return (self.getNumberOfAvailableSpots() == 0
-                and not self.allowWaitingList)
+                and not self.getAllowWaitingList())
 
     def getPeople(self):
         brains = self.portal_catalog.unrestrictedSearchResults(

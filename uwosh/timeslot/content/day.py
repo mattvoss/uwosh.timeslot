@@ -46,7 +46,7 @@ class Day(folder.ATFolder):
     description = atapi.ATFieldProperty('description')
 
     def Title(self):
-        if self.date is None:
+        if self.getDate() is None:
             return self.id
         else:
             return self.toLocalizedTime(self.getDate())

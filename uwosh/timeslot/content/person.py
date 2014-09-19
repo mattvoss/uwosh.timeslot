@@ -81,12 +81,12 @@ class Person(base.ATCTContent):
 
     def getExtraInfo(self):
         extraInfo = []
-        if self.phone != '':
-            extraInfo.append('Phone: ' + self.phone)
-        if self.classification != '':
-            extraInfo.append('Class: ' + self.classification)
-        if self.department != '':
-            extraInfo.append('Dept: ' + self.department)
+        if self.getPhone() != '':
+            extraInfo.append('Phone: ' + self.getPhone())
+        if self.getClassification() != '':
+            extraInfo.append('Class: ' + self.getClassification())
+        if self.getDepartment != '':
+            extraInfo.append('Dept: ' + self.getDepartment())
         return ', '.join(extraInfo)
 
 atapi.registerType(Person, PROJECTNAME)
