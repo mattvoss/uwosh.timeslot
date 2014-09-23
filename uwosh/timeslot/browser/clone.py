@@ -23,7 +23,7 @@ from plone.i18n.normalizer.interfaces import IURLNormalizer
 
 def _getContext(self):
     self = self.aq_parent
-    while getattr(self, '_is_wrapperish', None):
+    while getattr(self, '_is_wrapperish', None) is None:
         self = self.aq_parent
     return self
 
