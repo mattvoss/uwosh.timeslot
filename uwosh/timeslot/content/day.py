@@ -49,7 +49,10 @@ class Day(folder.ATFolder):
         if self.getDate() is None:
             return self.id
         else:
-            return self.toLocalizedTime(self.getDate())
+            # XXX toLocalizedTime() comes from Plone context, and is not available on import
+            # this strftime call matches the format (at least for US time/date)
+            #return self.toLocalizedTime(self.getDate())
+            return self.getDate().strftime("%b %d, %Y")
 
     def getTimeSlots(self):
         brains = self.portal_catalog.unrestrictedSearchResults(
