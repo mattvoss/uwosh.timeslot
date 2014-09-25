@@ -88,7 +88,7 @@ class TimeSlot(folder.ATFolder):
 
     def Title(self):
         if self.getName() != '':
-            return '%s: %s' % (self.name, self.getTimeRange())
+            return '%s: %s' % (self.getName(), self.getTimeRange())
         elif self.getTimeRange() != '':
             return self.getTimeRange()
         else:
