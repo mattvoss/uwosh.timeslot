@@ -27,8 +27,8 @@ class SubmitSelection(BrowserView):
     def submitUserSelection(self):
         self.results = list()
 
-        self.getUserInput()
         self.getMemberInfo()
+        self.getUserInput()
 
         if not self.areAnyRequiredFieldsEmpty() \
            and self.isAtLeastOneSlotSelected():
